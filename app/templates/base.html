@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Online Self Registration</title>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+
+<body>
+
+<!-- Default form login -->
+<div class="container">
+   <br>
+   <br>
+   <br>
+   <div class="container">
+      <img class="img-fluid" src="{{url_for('static', filename='img/logo.png')}}" alt="logo DHL" height="100" width="400">
+   </div>
+   <br>
+   <div class="shadow p-3 mb-5 bg-white rounded">
+    <form class="text-center border border-light p-5" action="{{url_for('processAPI')}}" method="GET">
+        <p class="h4 mb-4"> <h2> Journal TOCs Online Registration </h2></p>
+        <hr>
+        <div>
+            <!-- Simple Message -->
+            {% with mails = get_flashed_messages(category_filter=["message"]) %}
+                    {% if mails %}
+                    <div class="alert alert-success" role="alert">
+                        {%- for msg in mails %}
+                          <h3>{{ msg }}</h3>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+            {% endwith %}      
+            <!-- End Simple Message -->
+        </div>
+
+        <!-- Journals -->
+        <label for="issn" text-align="left"><strong>Please select the journal to register </strong></strong></label>
+        <select class="form-control mb-4" id="issn" name="issn" size="5" required>
+            {% for record in records %}
+                <option value="{{ record }}" >{{ record }}</option>
+            {% endfor %}
+        </select>
+
+         <!-- Email -->
+         <label for="email" text-align="left"><strong>Please provide your UN email (the mail should be part of the un.org domain)</strong></label>
+        <input type="email" id="email" pattern=".+@un.org"  class="form-control mb-4" placeholder="E-mail of the subscriber" name="email" required>
+        
+        <!-- Sign in button -->
+        <button class="btn btn-info my-4" type="submit"> Subscribe to the journal </button>
+        <button class="btn btn-info my-4" type="submit" onclick="javascript: form.action='/unfollow';"> Unsubscribe from the journal </button>
+
+        <!-- Register -->
+        <p> <h5> Need an account? Create one
+            <a href="http://www.journaltocs.ac.uk/index.php?action=register" target="_blank"> <strong> HERE !!! </strong> </a>
+        </h5></p>
+
+    </form>
+  </div>
+<!-- Default form login -->
+</div>
+<!--===============================================================================================-->
+	<script src="js/jquery-3.3.1.min.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+<!--===============================================================================================-->
+	<script src="js/animsition.min.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+<!--===============================================================================================-->
+	<script src="js/popper.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+<!--===============================================================================================-->
+	<script src="js/select2.min.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+<!--===============================================================================================-->
+	<script src="js/moment.min.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+	<script src="js/daterangepicker.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+<!--===============================================================================================-->
+	<script src="js/countdowntime.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+<!--===============================================================================================-->
+  <script src="js/main.js" type="67a40cb384933d803a01306f-text/javascript"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="67a40cb384933d803a01306f-text/javascript"></script>
+<script type="67a40cb384933d803a01306f-text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js" data-cf-settings="67a40cb384933d803a01306f-|49" defer=""></script>
+
+<script>
+    var email = document.getElementById("email");
+        email.addEventListener("input", function (event) {
+          if (email.validity.typeMismatch) {
+            email.setCustomValidity("The mail should be part of the un.org domain!!!");
+          } else {
+            email.setCustomValidity("");
+          }
+        });
+</script>
+
+</body>
+</html>
