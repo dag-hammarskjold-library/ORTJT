@@ -3,7 +3,7 @@ import os
 import requests
 import json
 import yaml
-import app.journals
+from app.journals import journals
  
 
 # Initialize your application.
@@ -12,17 +12,7 @@ app = Flask(__name__)
 app.secret_key = 'rlflmfdlk;mfdklnkl@@JIUkldnkndnd'
 
 # some variables
-records=[]
 sid="301017lkx4h9dlw"
-
-####################################################
-# Load the CSV file containing the book and issn
-####################################################
-
-def loadCSV():
-        recup=journals.journals
-        for line in recup:
-            records.append(line)
 
 ####################################################
 # Get the issn from the line of the file
@@ -39,12 +29,7 @@ def getISSN(myLine):
 @app.route('/')
 @app.route('/index')
 def index():
-    try:
-        loadCSV()
-        return(render_template('base.html',records=records))
-    except:
-        pass
-
+    return render_template('base.html', records=journals)
 
 @app.route('/processAPI',methods=['GET'])
 def processAPI():
