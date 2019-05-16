@@ -3,7 +3,7 @@ import os
 import requests
 import json
 import yaml
-import journals
+import app.journals
  
 
 # Initialize your application.
