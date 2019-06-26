@@ -42,7 +42,7 @@
    </div>
    <br>
    <div class="shadow p-3 mb-5 bg-white rounded">
-    <form class="text-center border border-light p-5" action="{{url_for('processAPI')}}" method="GET">
+    <form id="registration" class="text-center border border-light p-5" action="{{url_for('processAPI')}}" method="GET">
         <p class="h4 mb-4"> <h2> Journal TOCs Online Registration </h2></p>
         <hr>
         <div>
@@ -127,6 +127,10 @@
           }
         });
 </script>
-
+<script>
+   $('#registration').submit(function(e) {
+       e.preventDefault();
+        });
+</script>
 </body>
 </html>
