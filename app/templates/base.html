@@ -43,7 +43,7 @@
    <br>
    <div class="shadow p-3 mb-5 bg-white rounded">
     <form id="registration" class="text-center border border-light p-5" action="{{url_for('processAPI')}}" method="GET">
-        <p class="h4 mb-4"> <h2> Journal TOCs Online Registration </h2></p>
+        <p class="h4 mb-4"> <h2> JournalTOCs Online Registration </h2></p>
         <hr>
         <div>
             <!-- Simple Message -->
@@ -58,9 +58,14 @@
             {% endwith %}      
             <!-- End Simple Message -->
         </div>
-
+        
+	<!-- Register -->
+        <p> <h5> Create your JournalTOCs account
+            <a href="http://www.journaltocs.ac.uk/index.php?action=register" target="_blank"> <strong> HERE !!! </strong> </a>
+        </h5></p>
+	
         <!-- Journals -->
-        <label for="issn" text-align="left"><strong>Please select the journal to register </strong></strong></label>
+        <label for="issn" text-align="left"><strong>Please select one journal to register</strong></strong></label>
         <select class="form-control mb-4" id="issn" name="issn" size="5" required>
             {% for record in records %}
                 <option value="{{ record }}" >{{ record }}</option>
@@ -68,17 +73,14 @@
         </select>
 
          <!-- Email -->
-         <label for="email" text-align="left"><strong>Please provide your UN email (the mail should be part of the un.org domain)</strong></label>
+         <label for="email" text-align="left"><strong>Please provide your *@un.org email</strong></label>
         <input type="email" id="email" pattern=".+@un.org"  class="form-control mb-4" placeholder="E-mail of the subscriber" name="email" required>
         
         <!-- Sign in button -->
         <button class="btn btn-info my-4" type="submit"> Subscribe to the journal </button>
         <button class="btn btn-info my-4" type="submit" onclick="javascript: form.action='{{url_for('''unfollow''')}}';"> Unsubscribe from the journal </button>
 
-        <!-- Register -->
-        <p> <h5> Need an account? Create one
-            <a href="http://www.journaltocs.ac.uk/index.php?action=register" target="_blank"> <strong> HERE !!! </strong> </a>
-        </h5></p>
+
 
     </form>
   </div>
