@@ -57,7 +57,7 @@ def processAPI():
     text=myData["responseText"]
 
     if text.startswith("User does not exist in JournalTOCs database"):
-        flash('This user does not exist in the database!!! , please click on the link HERE at the bottom ', 'message')
+        flash('You do not have a JournalTOCs account please create an account using the link above ', 'message')
 
 
     if text.startswith("User exists in JournalTOCs but journal XXXX-XXXXX was not found in JournalTOCs"):
