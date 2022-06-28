@@ -1,6 +1,6 @@
 ﻿aniso8601==6.0.0
 argcomplete==1.9.3
-arrow==0.13.0
+arrow==0.15.1
 attrs==19.1.0
 beautifulsoup4==4.7.1
 binaryornot==0.4.4
